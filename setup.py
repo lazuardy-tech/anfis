@@ -14,16 +14,7 @@ setup(
     long_description_content_type="text/markdown",
     author="Lazuardy",
     author_email="contact@lazuardy.tech",
-    packages=find_packages(
-        include=[
-            "anfis",
-            "fuzzy-logic",
-            "neural-networks",
-            "fnn",
-            "lazuardy",
-            "lazuardy_anfis",
-        ]
-    ),
+    packages=find_packages(),
     keywords="anfis, fuzzy logic, neural networks, fnn, lazuardy, lazuardy anfis",
     url="https://github.com/lazuardy-tech/anfis",
     download_url="https://github.com/lazuardy-tech/anfis/releases",

@@ -14,7 +14,7 @@ import itertools
 
 import numpy as np
 
-from lazuardy_anfis import mfderivs
+from . import mfderivs
 
 
 class ANFIS:

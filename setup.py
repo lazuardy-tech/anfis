@@ -7,8 +7,8 @@ with open("requirements.txt") as f:
     required = f.read().splitlines()
 
 setup(
-    name="lazuardy-anfis",
-    version="0.0.1",
+    name="lazuardy_anfis",
+    version="0.0.2",
     description="Adaptive Neuro Fuzzy Inference System Implementation in Python.",
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -16,15 +16,15 @@ setup(
     author_email="contact@lazuardy.tech",
     packages=find_packages(
         include=[
-            "lazuardy-anfis",
             "anfis",
-            "fnn",
             "fuzzy-logic",
             "neural-networks",
+            "fnn",
             "lazuardy",
+            "lazuardy_anfis",
         ]
     ),
-    keywords="anfis, fuzzy logic, neural networks, fnn, lazuardy",
+    keywords="anfis, fuzzy logic, neural networks, fnn, lazuardy, lazuardy anfis",
     url="https://github.com/lazuardy-tech/anfis",
     download_url="https://github.com/lazuardy-tech/anfis/releases",
     license="MIT",

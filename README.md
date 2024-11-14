@@ -30,7 +30,7 @@ All useful contributions to make this a better project will be happily received.
 This package may then be installed by running:
 
 ```bash
-pip install lazuardy-anfis
+pip install lazuardy_anfis
 ```
 
 <br/>

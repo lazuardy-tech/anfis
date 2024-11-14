@@ -9,14 +9,16 @@ Updated on Fri Nov 15 00:00:00 2024
 - lazuardy-tech <contact@lazuardy.tech>
 """
 
+import os
+
 import numpy
 
 import anfis
 import membershipfunction
 import mfderivs
 
-# define the training_set.txt file path, please change it to your own path
-training_set = "/Users/ezra/projects/lazuardy/oss/anfis/src/training_set.txt"
+# define the training_set.txt file path
+training_set = os.getcwd() + "/src/training_set.txt"
 
 ts = numpy.loadtxt(training_set, usecols=[1, 2, 3])
 X = ts[:, 0:2]

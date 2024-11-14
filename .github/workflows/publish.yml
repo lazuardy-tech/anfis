@@ -22,7 +22,7 @@ jobs:
       - name: "🔍 Performing Lint & Formatting"
         run: black .
       - name: "🧪 Running Tests"
-        run: python lazuardy_anfis/tests.py
+        run: python -m lazuardy_anfis.tests
       - name: "🔨 Building Package"
         run: python -m build --sdist --wheel --outdir dist/
       - name: "📦 Publish Package to PyPI"

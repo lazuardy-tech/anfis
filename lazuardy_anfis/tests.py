@@ -11,15 +11,16 @@ Updated on Fri Nov 15 00:00:00 2024
 
 import os
 
-import anfis
-import membershipfunction
-import mfderivs
-import numpy
+import numpy as np
+
+import lazuardy_anfis.anfis
+import lazuardy_anfis.membershipfunction
+import lazuardy_anfis.mfderivs
 
 # define the training_set.txt file path
 training_set = os.getcwd() + "/lazuardy_anfis/training_set.txt"
 
-ts = numpy.loadtxt(training_set, usecols=[1, 2, 3])
+ts = np.loadtxt(training_set, usecols=[1, 2, 3])
 X = ts[:, 0:2]
 Y = ts[:, 2]
 

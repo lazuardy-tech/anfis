@@ -1,21 +1,34 @@
 from setuptools import find_packages, setup
 
+with open("README.md", "r") as fh:
+    long_description = fh.read()
+
+with open("requirements.txt") as f:
+    required = f.read().splitlines()
+
 setup(
     name="lazuardy-anfis",
     version="0.0.1",
     description="Adaptive Neuro Fuzzy Inference System Implementation in Python.",
-    url="https://github.com/lazuardy-tech/anfis",
-    download_url="https://github.com/lazuardy-tech/anfis/releases",
+    long_description=long_description,
+    long_description_content_type="text/markdown",
     author="Lazuardy",
     author_email="contact@lazuardy.tech",
-    license="MIT",
-    package_data={
-        # If any package contains *.txt files, include them:
-        "": ["*.txt"]
-    },
+    packages=find_packages(
+        include=[
+            "lazuardy-anfis",
+            "anfis",
+            "fnn",
+            "fuzzy-logic",
+            "neural-networks",
+            "lazuardy",
+        ]
+    ),
     keywords="anfis, fuzzy logic, neural networks, fnn, lazuardy",
-    packages=find_packages(),
-    install_requires=["numpy", "matplotlib", "scikit-fuzzy"],
+    url="https://github.com/lazuardy-tech/anfis",
+    download_url="https://github.com/lazuardy-tech/anfis/releases",
+    license="MIT",
+    install_requires=required,
     classifiers=[
         # How mature is this project? Common values are
         #   3 - Alpha

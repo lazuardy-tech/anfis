@@ -1,6 +1,10 @@
 <div>
   <img alt="CodeQL Analysis" src="https://github.com/lazuardy-tech/anfis/actions/workflows/github-code-scanning/codeql/badge.svg" />
   <img alt="Build" src="https://github.com/lazuardy-tech/anfis/actions/workflows/build.yml/badge.svg" />
+  <img alt="PyPI License" src="https://img.shields.io/pypi/l/lazuardy-anfis" />
+  <img alt="PyPI Version" src="https://img.shields.io/pypi/v/lazuardy-anfis" />
+  <img alt="PyPI Python Version" src="https://img.shields.io/pypi/pyversions/lazuardy-anfis" />
+  <img alt="PyPI Implementation" src="https://img.shields.io/pypi/implementation/lazuardy-anfis" />
 </div>
 
 ## ∑ anfis

@@ -68,5 +68,5 @@ A user can define the number of epochs that will be run. The returned ANFIS obje
 
 > This project is licensed under [MIT License](https://github.com/lazuardy-tech/anfis/blob/main/LICENSE).
 
-> © Lazuardy 2024. All rights reserved. <br/>
+> © [Lazuardy](https://lazuardy.tech) 2024. All rights reserved. <br/>
 > PT Inovasi Kolektif Digital. <br/> [Terms of Service](https://lazuardy.tech/terms) | [Privacy Policy](https://lazuardy.tech/privacy)

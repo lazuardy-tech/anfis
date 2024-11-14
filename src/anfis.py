@@ -14,7 +14,7 @@ import itertools
 
 import numpy as np
 
-import mfDerivs
+import mfderivs
 
 
 class ANFIS:
@@ -272,7 +272,7 @@ def backprop(ANFISObj, columnX, columns, theWSum, theW, theLayerFive):
                     )[0]
                     adjCols = np.delete(columns, columnX)
 
-                    senSit = mfDerivs.partial_dMF(
+                    senSit = mfderivs.partial_dMF(
                         ANFISObj.X[rowX, columnX], ANFISObj.memFuncs[columnX][MF], alpha
                     )
                     # produces d_ruleOutput/d_parameterWithinMF

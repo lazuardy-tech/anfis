@@ -13,10 +13,10 @@ import numpy
 
 import anfis
 import membershipfunction
-import mfDerivs
+import mfderivs
 
-# define the trainingSet.txt file path
-training_set = "/Users/ezra/projects/lazuardy/oss/anfis/src/trainingSet.txt"
+# define the training_set.txt file path, please change it to your own path
+training_set = "/Users/ezra/projects/lazuardy/oss/anfis/src/training_set.txt"
 
 ts = numpy.loadtxt(training_set, usecols=[1, 2, 3])
 X = ts[:, 0:2]

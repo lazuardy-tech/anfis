@@ -32,21 +32,21 @@ pip install lazuardy-anfis
 
 ### 🧪 Testing
 
-Install anfis and navigate to the location of `src/tests.py`.
+Install anfis and navigate to the location of `src/test.py`.
 
 From the command line run:
 
 ```bash
-python tests.py
+python src/test.py
 ```
 
 Alternatively, from the same location launch `ipython` and run:
 
 ```bash
-run tests.py
+run src/test.py
 ```
 
-This will set up and fit an ANFIS model based on the data contained in `trainingSet.txt`, using 10 epochs. Plots of the fitting errors and the model predicted output are graphed.
+This will set up and fit an ANFIS model based on the data contained in `training_set.txt`, using 10 epochs. Plots of the fitting errors and the model predicted output are graphed.
 
 <br/>
 

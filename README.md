@@ -6,7 +6,7 @@
 
 Adaptive Neuro Fuzzy Inference System Implementation in Python.
 
-This project is a fork of [twmeggs/anfis](https://github.com/twmeggs/anfis), with new fixes, optimizations, and improvements so that the package can be used in further projects. All credits goes to [twmeggs](https://github.com/twmeggs) for the original implementation.
+This project is a fork of [twmeggs/anfis](https://github.com/twmeggs/anfis), with bug fixes, optimizations, and improvements so that the package can be used in further projects. All credits goes to [twmeggs](https://github.com/twmeggs) for the original implementation.
 
 <br/>
 
@@ -22,7 +22,7 @@ All useful contributions to make this a better project will be happily received.
 
 ### 🚀 Getting Started
 
-`anfis` may then be installed by running:
+This package may then be installed by running:
 
 ```bash
 pip install lazuardy-anfis

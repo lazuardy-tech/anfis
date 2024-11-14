@@ -1,5 +1,5 @@
 <div>
-  <img alt="CodeQL Analysis" src="https://github.com/lazuardy-tech/partnership/actions/workflows/github-code-scanning/codeql/badge.svg" />
+  <img alt="CodeQL Analysis" src="https://github.com/lazuardy-tech/anfis/actions/workflows/github-code-scanning/codeql/badge.svg" />
 </div>
 
 ## ∑ anfis

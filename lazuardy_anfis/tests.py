@@ -11,11 +11,10 @@ Updated on Fri Nov 15 00:00:00 2024
 
 import os
 
+import anfis
+import membershipfunction
+import mfderivs
 import numpy as np
-
-import lazuardy_anfis.anfis
-import lazuardy_anfis.membershipfunction
-import lazuardy_anfis.mfderivs
 
 # define the training_set.txt file path
 training_set = os.getcwd() + "/lazuardy_anfis/training_set.txt"

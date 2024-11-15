@@ -13,7 +13,7 @@ import os
 
 import numpy as np
 
-from . import anfis, membershipfunction, mfderivs
+from . import anfis, membershipfunction
 
 # define the training_set.txt file path
 training_set = os.getcwd() + "/lazuardy_anfis/training_set.txt"

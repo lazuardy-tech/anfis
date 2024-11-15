@@ -9,6 +9,6 @@ Updated on Fri Nov 15 00:00:00 2024
 - lazuardy-tech <contact@lazuardy.tech>
 """
 
-from . import anfis, membershipfunction, mfderivs
+from . import anfis, membershipfunction
 
-__all__ = ["anfis", "membershipfunction", "mfderivs"]
+__all__ = ["anfis", "membershipfunction"]

@@ -13,8 +13,7 @@ import copy
 import itertools
 
 import numpy as np
-
-from . import mfderivs
+from skfuzzy import partial_dmf
 
 
 class ANFIS:
@@ -271,10 +270,12 @@ def backprop(ANFISObj, columnX, columns, theWSum, theW, theLayerFive):
                         np.where(ANFISObj.rules[:, columnX] == MF)
                     )[0]
                     adjCols = np.delete(columns, columnX)
-
-                    senSit = mfderivs.partial_dMF(
-                        ANFISObj.X[rowX, columnX], ANFISObj.memFuncs[columnX][MF], alpha
+                    mf_name = ANFISObj.memFuncs[columnX][MF][0]
+                    mf_parameters = ANFISObj.memFuncs[columnX][MF][1]
+                    senSit = partial_dmf(
+                        ANFISObj.X[rowX, columnX], mf_name, mf_parameters, alpha
                     )
+
                     # produces d_ruleOutput/d_parameterWithinMF
                     dW_dAplha = senSit * np.array(
                         [

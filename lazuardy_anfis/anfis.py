@@ -32,7 +32,6 @@ class ANFIS:
         memFuncsHomo
         trainingType
 
-
     """
 
     def __init__(self, X, Y, memFunction):
@@ -86,7 +85,7 @@ class ANFIS:
         convergence = False
         epoch = 1
 
-        while (epoch < epochs) and (convergence is not True):
+        while (epoch < epochs) and (not convergence):
             # layer four: forward pass
             [layerFour, wSum, w] = forwardHalfPass(self, self.X)
 
@@ -102,11 +101,11 @@ class ANFIS:
             self.errors = np.append(self.errors, error)
 
             if len(self.errors) != 0:
-                if self.errors[len(self.errors) - 1] < tolerance:
+                if self.errors[-1] < tolerance:
                     convergence = True
 
             # back propagation
-            if convergence is not True:
+            if not convergence:
                 cols = range(len(self.X[0, :]))
                 dE_dAlpha = list(
                     backprop(self, colX, cols, wSum, w, layerFive)
@@ -168,6 +167,23 @@ class ANFIS:
 
         return self.fittedValues
 
+    def plotMF(self, x, inputVar):
+        import matplotlib.pyplot as plt
+        from skfuzzy import gaussmf, gbellmf, sigmf
+
+        for mf in range(len(self.memFuncs[inputVar])):
+            if self.memFuncs[inputVar][mf][0] == "gaussmf":
+                y = gaussmf(x, **self.memClass.MFList[inputVar][mf][1])
+            elif self.memFuncs[inputVar][mf][0] == "gbellmf":
+                y = gbellmf(x, **self.memClass.MFList[inputVar][mf][1])
+            # elif self.memFuncs[inputVar][mf][0] == "sigmf":
+            else:
+                y = sigmf(x, **self.memClass.MFList[inputVar][mf][1])
+
+            plt.plot(x, y, "r")
+
+        plt.show()
+
     def plotErrors(self):
         if self.trainingType == "Not trained yet":
             print(self.trainingType)
@@ -178,22 +194,6 @@ class ANFIS:
             plt.ylabel("error")
             plt.xlabel("epoch")
             plt.show()
-
-    def plotMF(self, x, inputVar):
-        import matplotlib.pyplot as plt
-        from skfuzzy import gaussmf, gbellmf, sigmf
-
-        for mf in range(len(self.memFuncs[inputVar])):
-            if self.memFuncs[inputVar][mf][0] == "gaussmf":
-                y = gaussmf(x, **self.memClass.MFList[inputVar][mf][1])
-            elif self.memFuncs[inputVar][mf][0] == "gbellmf":
-                y = gbellmf(x, **self.memClass.MFList[inputVar][mf][1])
-            elif self.memFuncs[inputVar][mf][0] == "sigmf":
-                y = sigmf(x, **self.memClass.MFList[inputVar][mf][1])
-
-            plt.plot(x, y, "r")
-
-        plt.show()
 
     def plotResults(self):
         if self.trainingType == "Not trained yet":
@@ -207,6 +207,14 @@ class ANFIS:
             plt.plot(range(len(self.Y)), self.Y, "b", label="original")
             plt.legend(loc="upper left")
             plt.show()
+
+    def predict(self, inputVar):
+        [layerFour, wSum, w] = forwardHalfPass(self, inputVar)
+
+        # layer five
+        layerFive = np.dot(layerFour, self.consequents)
+
+        return layerFive
 
 
 def forwardHalfPass(ANFISObj, Xs):
@@ -337,12 +345,3 @@ def backprop(ANFISObj, columnX, columns, theWSum, theW, theLayerFive):
         paramGrp[MF] = parameters
 
     return paramGrp
-
-
-def predict(ANFISObj, varsToTest):
-    [layerFour, wSum, w] = forwardHalfPass(ANFISObj, varsToTest)
-
-    # layer five
-    layerFive = np.dot(layerFour, ANFISObj.consequents)
-
-    return layerFive

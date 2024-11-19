@@ -162,7 +162,7 @@ class ANFIS:
                         )
             epoch = epoch + 1
 
-        self.fittedValues = predict(self, self.X)
+        self.fittedValues = self.predict(self.X)
         self.residuals = self.Y - self.fittedValues[:, 0]
 
         return self.fittedValues

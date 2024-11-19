@@ -8,7 +8,7 @@ with open("requirements.txt") as f:
 
 setup(
     name="lazuardy_anfis",
-    version="0.0.6",
+    version="0.0.7",
     description="Adaptive Neuro Fuzzy Inference System Implementation in Python.",
     long_description=long_description,
     long_description_content_type="text/markdown",

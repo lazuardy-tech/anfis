@@ -21,8 +21,10 @@ jobs:
           pip install build
       - name: "🔍 Performing Lint & Formatting"
         run: black .
-      - name: "🧪 Running Tests"
+      - name: "🧪 Running Tests (CPU)"
         run: python -m lazuardy_anfis.tests
+      - name: "🧪 Running Tests (GPU)"
+        run: python -m lazuardy_anfis.tests_gpu
       - name: "🔨 Building Package"
         run: python -m build --sdist --wheel --outdir dist/
       - name: "📦 Publish Package to PyPI"

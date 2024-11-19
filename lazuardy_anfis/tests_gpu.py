@@ -13,6 +13,8 @@ import os
 import time
 
 import numpy as np
+import torch
+from sklearn.metrics import accuracy_score
 
 from . import anfis_gpu, membershipfunction
 
@@ -58,6 +60,19 @@ anf = anfis_gpu.ANFIS(X, Y, mfc)
 
 # train the model
 anf.trainHybridJangOffLine(epochs=epochs)
+
+# generate predictions on the training dataset
+predictions = anf.predict(torch.tensor(X, dtype=torch.float32))
+
+# calculate accuracy (assuming a classification task)
+correct_predictions = torch.sum(
+    torch.argmax(predictions, dim=1) == torch.tensor(Y, dtype=torch.long)
+)
+total_predictions = Y.size
+accuracy = (correct_predictions / total_predictions).item()
+
+# print accuracy
+print(f"Model Accuracy on Training Data: {accuracy * 100:.2f}%")
 
 # stop the timer
 end_time = time.time()

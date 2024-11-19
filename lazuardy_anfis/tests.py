@@ -13,6 +13,7 @@ import os
 import time
 
 import numpy as np
+from sklearn.metrics import accuracy_score
 
 from . import anfis, membershipfunction
 
@@ -59,6 +60,21 @@ anf = anfis.ANFIS(X, Y, mfc)
 # train the model
 anf.trainHybridJangOffLine(epochs=epochs)
 
+# predict the output using the trained ANFIS model
+predictions = anf.predict(X)
+
+# ensure Y is binary
+Y_binary = (Y > 0.5).astype(int)
+
+# convert predictions to binary values (assuming a binary classification problem)
+predictions_binary = (predictions > 0.5).astype(int)
+
+# calculate the accuracy
+accuracy = accuracy_score(Y_binary, predictions_binary)
+
+# print accuracy
+print(f"Model Accuracy on Training Data: {accuracy * 100:.2f}%")
+
 # stop the timer
 end_time = time.time()
 
@@ -67,9 +83,7 @@ execution_time = end_time - start_time
 print(f"Execution time: {execution_time} seconds")
 
 # print the error plot
-print(f"Error plot:")
 anf.plotErrors()
 
 # print the result plot
-print(f"Result plot:")
 anf.plotResults()

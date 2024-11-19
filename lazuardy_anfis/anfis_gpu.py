@@ -197,7 +197,7 @@ class ANFIS:
             plt.show()
 
     def predict(self, inputVar):
-        inputVar = torch.tensor(inputVar, dtype=torch.float32).to(self.device)
+        inputVar = inputVar.clone().detach().to(self.device).float()
         [layerFour, wSum, w] = self.forwardHalfPass(inputVar)
 
         layerFive = layerFour @ self.consequents

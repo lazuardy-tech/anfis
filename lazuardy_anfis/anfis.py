@@ -12,8 +12,9 @@ Updated on Fri Nov 15 00:00:00 2024
 import copy
 import itertools
 
+import matplotlib.pyplot as plt
 import numpy as np
-from skfuzzy import partial_dmf
+from skfuzzy import gaussmf, gbellmf, partial_dmf, sigmf
 
 
 class ANFIS:
@@ -168,9 +169,6 @@ class ANFIS:
         return self.fittedValues
 
     def plotMF(self, x, inputVar):
-        import matplotlib.pyplot as plt
-        from skfuzzy import gaussmf, gbellmf, sigmf
-
         for mf in range(len(self.memFuncs[inputVar])):
             if self.memFuncs[inputVar][mf][0] == "gaussmf":
                 y = gaussmf(x, **self.memClass.MFList[inputVar][mf][1])
@@ -188,8 +186,6 @@ class ANFIS:
         if self.trainingType == "Not trained yet":
             print(self.trainingType)
         else:
-            import matplotlib.pyplot as plt
-
             plt.plot(range(len(self.errors)), self.errors, "ro", label="errors")
             plt.ylabel("error")
             plt.xlabel("epoch")
@@ -199,8 +195,6 @@ class ANFIS:
         if self.trainingType == "Not trained yet":
             print(self.trainingType)
         else:
-            import matplotlib.pyplot as plt
-
             plt.plot(
                 range(len(self.fittedValues)), self.fittedValues, "r", label="trained"
             )

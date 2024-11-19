@@ -14,7 +14,7 @@ import time
 
 import numpy as np
 
-from . import anfis, membershipfunction
+from . import anfis_gpu, membershipfunction
 
 # start the timer
 start_time = time.time()
@@ -54,7 +54,7 @@ print(f"Number of membership function variables: {len(mf)}")
 
 # initialize ANFIS
 mfc = membershipfunction.MemFuncs(mf)
-anf = anfis.ANFIS(X, Y, mfc)
+anf = anfis_gpu.ANFIS(X, Y, mfc)
 
 # train the model
 anf.trainHybridJangOffLine(epochs=epochs)
@@ -67,9 +67,7 @@ execution_time = end_time - start_time
 print(f"Execution time: {execution_time} seconds")
 
 # print the error plot
-print(f"Error plot:")
 anf.plotErrors()
 
 # print the result plot
-print(f"Result plot:")
 anf.plotResults()
